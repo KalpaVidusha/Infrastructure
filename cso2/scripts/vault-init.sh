@@ -103,6 +103,19 @@ for SERVICE in product-catalogue-service content-service notifications-service s
 done
 
 echo ""
+echo "  --- Shared app secrets (mail, twilio, AI) ---"
+kubectl exec -n "$NAMESPACE" "$VAULT_POD" -- \
+  env VAULT_TOKEN=root VAULT_ADDR=http://127.0.0.1:8200 \
+  vault kv put secret/cso2/app-secrets \
+    mail_username="user@example.com" \
+    mail_password="change_me" \
+    twilio_account_sid="change_me" \
+    twilio_auth_token="change_me" \
+    twilio_phone_number="change_me" \
+    gemini_api_key="change_me"
+echo "  Written: secret/cso2/app-secrets (mail, twilio, gemini — update values before use)"
+
+echo ""
 echo "========================================"
 echo "=== Done! All secrets stored in Vault ==="
 echo "========================================"

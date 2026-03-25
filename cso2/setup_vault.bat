@@ -49,12 +49,21 @@ set "SECRETS=!SECRETS! mongodb_uri=mongodb://localhost:27017/CSO2_shoppingcart_w
 set "SECRETS=!SECRETS! product_mongodb_uri=mongodb://localhost:27017/CSO2_product_catalogue_service"
 set "SECRETS=!SECRETS! content_mongodb_uri=mongodb://localhost:27017/CSO2_content_service"
 set "SECRETS=!SECRETS! notifications_mongodb_uri=mongodb://localhost:27017/CSO2_notifications_service"
+set "SECRETS=!SECRETS! support_mongodb_uri=mongodb://localhost:27017/CSO2_support_service"
 
 :: D. Notification Credentials (PLACEHOLDERS)
 :: NOTE: If you need to test email sending locally, open this file 
 :: and replace these two values with your real Gmail App Password.
 set "SECRETS=!SECRETS! mail_username=user@example.com"
 set "SECRETS=!SECRETS! mail_password=change_me_locally"
+
+:: E. Twilio Credentials (PLACEHOLDERS — replace with real values to test SMS)
+set "SECRETS=!SECRETS! twilio_account_sid=change_me_locally"
+set "SECRETS=!SECRETS! twilio_auth_token=change_me_locally"
+set "SECRETS=!SECRETS! twilio_phone_number=change_me_locally"
+
+:: F. AI / Gemini API Key (PLACEHOLDER — replace with your real Google Gemini API key)
+set "SECRETS=!SECRETS! gemini_api_key=change_me_locally"
 
 :: --- 5. INJECT SECRETS ---
 echo.
